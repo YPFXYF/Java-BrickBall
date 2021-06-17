@@ -8,25 +8,51 @@
 
 ## 大致架构
 
+基础：窗体、图片的显示和移动、键盘监听、碰撞判定
+
+设计：球和砖等实例，
+
 ### 已完成的
+
+### Game类
+
+继承自JFrame
 
 建立Game类继承自JFrame，重写JFrame的paint方法实现我们自己绘图
 
-新建GameObject类，游戏中所有对象都会继承自这个类。里面有坐标，坐标处理的相关方法以及画图方法draw(Graphics g).还有onTick方法在每一帧被调用，用于移动对象
+储存有窗口大小等信息，以及存有窗口中的游戏对象元素的ArrayList。
+
+paint方法中使用双缓冲解决渲染慢导致的闪烁问题
+
+### GameObject类
+
+新建GameObject类，游戏中所有对象都会继承自这个类。
+
+里面有坐标，坐标处理的相关方法以及画图方法draw(Graphics g).还有onTick()方法执行移动对象的交互，transfer方法用于移动对象。
+
+### Sprite类
 
 Sprite类继承自GameObject，用于把图片作为游戏里可移动，操作的对象
 
+### RenderThread类
+
 RenderThread类实现Runnable接口，这个线程用于定时重绘游戏窗口画面。
+
+### Input类
+
+Input类监听键盘
 
 ### 未完成的
 
-Ball类继承自GameObject表示小球
+RectGameObject类继承自GameObject类，用于碰撞判断
 
-Brick类继承自GameObject表示砖块
+Ball类继承自RectGameObject表示小球
+
+Brick类继承自RectGameObject表示砖块
 
 球和砖的交互
 
-Input类监听键盘
+Player类继承自Game类表示游戏
 
 ## 解决窗口闪烁问题
 

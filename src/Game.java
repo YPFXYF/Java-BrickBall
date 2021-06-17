@@ -23,6 +23,9 @@ public class Game extends JFrame {
         createWindow();
         render = new RenderThread(this);
         render.start();
+        Input input = new Input();
+        input.init();
+        this.addKeyListener(input);
     }
 
     private void createWindow() {

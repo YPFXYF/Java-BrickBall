@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class GameObject {
+public abstract class GameObject {
     /*
      *所有类都会继承此类
      * 这是游戏主要的逻辑处理
@@ -13,15 +13,11 @@ public class GameObject {
     /**
      * 渲染此GameObject
      */
-    public void draw(Graphics g) {
-
-    }
+    public abstract void draw(Graphics g);
     /**
      * 在游戏的每一帧被调用
      */
-    public void onTick() {
-        this.transfer(1, 0);    //在当前基础上右移1单位
-    }
+    public abstract void onTick();
     /**
      * 设置坐标
      */

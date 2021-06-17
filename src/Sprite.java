@@ -15,4 +15,9 @@ public class Sprite extends GameObject {
         //在(x,y)绘制图片
         g.drawImage(image, x, y, null);
     }
+
+    @Override
+    public void onTick() {
+
+    }
 }

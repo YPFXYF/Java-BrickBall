@@ -6,7 +6,7 @@ public class Main {
      */
     public static void main(String[] args) {
         Game game = new Game(1024, 768, "YJMSTR 打砖块", 24);
-        Sprite s = new Sprite("C:\\Users\\jay12\\Pictures\\7.jpg");
+        Sprite s = new Sprite("images/ball.png");
         s.setPosition(114,514);
         game.addGameObject(s);
     }
