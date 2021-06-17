@@ -6,7 +6,12 @@ public class Main {
      */
     public static void main(String[] args) {
         Game game = new Game(1024, 768, "打砖块", 60);
-        Sprite s = new Ball();
+        /*Ball s = new Ball();
+        Wood w = new Wood();
+        //Ball pos = new Ball();
+        s.setWood(w);
         game.addGameObject(s);
+        game.addGameObject(w);*/
+        //game.addGameObject(pos);
     }
 }

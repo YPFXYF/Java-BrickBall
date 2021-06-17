@@ -3,6 +3,7 @@ import java.awt.*;
 public class RectGameObject extends Sprite{
     protected int width, height;
     Point center, LU, LD, RU, RD;
+
     public RectGameObject(int x, int y, int width, int height) {
         setPosition(x, y);
         setWidth(width);

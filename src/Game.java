@@ -15,11 +15,23 @@ public class Game extends JFrame {
     private ArrayList<GameObject> gameObjects;
     private Graphics tempGraphics;
     public Game(int windowWidth, int windowHeight, String title, int fps) {
+        gameObjects = new ArrayList<GameObject>();
         width = windowWidth;
         height = windowHeight;
         this.fps = fps;
+        Wood wood = new Wood();
+        gameObjects.add(wood);
+        Ball ball = new Ball();
+        ball.setWood(wood);
+        gameObjects.add(ball);
+        for (int i = 1; i <= 15; i++) {
+            for (int j = 1; j <= 3; j++) {
+                Brick brick = new Brick((i-1)*63+3, (j-1)*32 + 2, 60, 30);
+                brick.setBall(ball);
+                gameObjects.add(brick);
+            }
+        }
         windowTitle = title;
-        gameObjects = new ArrayList<GameObject>();
         createWindow();
         render = new RenderThread(this);
         render.start();

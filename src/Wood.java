@@ -6,14 +6,14 @@ public class Wood extends RectGameObject {
     /**
      * 玩家操控的木板
      */
-    public Wood(int x, int y, int width, int height) {
-        super(x, y, width, height);
+    public Wood() {
+        super(411, 634, 203, 11);
+        setFilePath("images/wood.png");
     }
 
     @Override
     public void draw(Graphics g) {
-        g.setColor(Color.CYAN);
-        g.fillRect(x, y, width, height);
+        g.drawImage(image, x, y, null);
     }
 
     @Override
@@ -22,5 +22,12 @@ public class Wood extends RectGameObject {
             this.transfer(-1*speed, 0);
         if (Input.getKeyDown(KeyEvent.VK_RIGHT))
             this.transfer(1*speed, 0);
+        //System.out.println("wood x ==" + x + "wood y==" + y);
+    }
+
+    @Override
+    public void transfer(int x, int y) {
+        super.transfer(x, y);
+
     }
 }

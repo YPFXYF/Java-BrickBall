@@ -10,8 +10,6 @@ public class RenderThread implements Runnable {
     public RenderThread(Game g) {
         game = g;
         interval = 1000 / game.getFps();//计算出隔多久重画一次
-        System.out.println("[Render]Created");
-        System.out.println("[Render]Render interval: " + interval + "ms");
     }
 
     @Override

@@ -4,7 +4,6 @@ public class Sprite extends GameObject {
     protected Image image;
     String filePath;
     public Sprite() {
-        //从文件中加载图片
         this.x = 0;
         this.y = 0;     //默认(0,0)
     }
