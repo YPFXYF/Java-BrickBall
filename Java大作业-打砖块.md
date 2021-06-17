@@ -20,11 +20,13 @@ RenderThread类实现Runnable接口，这个线程用于定时重绘游戏窗口
 
 ### 未完成的
 
-Ball类继承自GameObject
+Ball类继承自GameObject表示小球
 
-Brick类继承自GameObject
+Brick类继承自GameObject表示砖块
 
-Rect
+球和砖的交互
+
+Input类监听键盘
 
 ## 解决窗口闪烁问题
 
@@ -49,3 +51,8 @@ while(渲染未完成){
 窗口画布.DrawImage(内存画布.到Image())->OS->显卡
 ```
 
+## 键盘与游戏交互
+
+监听键盘按键：实现KeyListener接口就可以了。
+
+新建Input类，实现KeyListener接口，用哈希表把按键映射到对应的值上。重写KeyListener中的keyTyped,keyPressed和keyReleased方法
