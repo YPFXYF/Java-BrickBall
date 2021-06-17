@@ -8,11 +8,11 @@ public class Wood extends RectGameObject {
      */
     public Wood(int x, int y, int width, int height) {
         super(x, y, width, height);
-        setFilePath("images/wood..png");
     }
 
     @Override
     public void draw(Graphics g) {
+        g.setColor(Color.CYAN);
         g.fillRect(x, y, width, height);
     }
 
