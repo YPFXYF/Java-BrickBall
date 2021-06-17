@@ -82,3 +82,30 @@ while(渲染未完成){
 监听键盘按键：实现KeyListener接口就可以了。
 
 新建Input类，实现KeyListener接口，用哈希表把按键映射到对应的值上。重写KeyListener中的keyTyped,keyPressed和keyReleased方法
+
+## 碰撞检测
+
+https://blog.csdn.net/ximen250/article/details/105566663?spm=1001.2014.3001.5501
+
+建立抽象类RectGameObject继承自GameObject
+
+球和砖简化为判断圆形和矩形的碰撞
+
+以球心为座标原点，窗口边框方向为座标轴方向建立座标系
+
+### case1:砖全部在某一个象限内
+
+依次计算每个角到圆心的距离是否小于半径即可。
+
+如何判断四角是否在同一个象限内？判左上角和右下角是否在同一个象限即可。
+
+### case2:砖跨过2个或2个以上的象限
+
+此时的碰撞是砖块的边与球的碰撞
+
+可以把球看成边长2r的正方形
+
+
+
+
+

@@ -1,15 +1,22 @@
 import java.awt.*;
 
 public class Sprite extends GameObject {
-    private Image image;
-
-    public Sprite(String filePath) {
-        image = Toolkit.getDefaultToolkit().createImage(filePath);
+    protected Image image;
+    String filePath;
+    public Sprite() {
         //从文件中加载图片
         this.x = 0;
-        this.y = 0;
+        this.y = 0;     //默认(0,0)
     }
 
+    /**
+     * 设置Sprite对象显示的图像路径
+     * @param s 图像文件的路径
+     */
+    public void setFilePath(String s) {
+        filePath = s;
+        image = Toolkit.getDefaultToolkit().createImage(filePath);
+    }
     @Override
     public void draw(Graphics g) {
         //在(x,y)绘制图片
