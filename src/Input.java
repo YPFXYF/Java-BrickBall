@@ -12,7 +12,7 @@ public class Input implements KeyListener {
             keys.put(i, false);
         }
     }
-    
+
     /**
      * 有按键按下时设置对应状态为true，松开时改为false。
      * @param e
