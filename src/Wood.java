@@ -18,10 +18,14 @@ public class Wood extends RectGameObject {
 
     @Override
     public void onTick() {
-        if (Input.getKeyDown(KeyEvent.VK_LEFT))
-            this.transfer(-1*speed, 0);
-        if (Input.getKeyDown(KeyEvent.VK_RIGHT))
-            this.transfer(1*speed, 0);
+        if (Input.getKeyDown(KeyEvent.VK_LEFT)) {
+            this.transfer(-1 * speed, 0);
+        }
+        if (Input.getKeyDown(KeyEvent.VK_RIGHT)) {
+            if (this.x + width < 1024) {
+                this.transfer(1 * speed, 0);
+            }
+        }
         //System.out.println("wood x ==" + x + "wood y==" + y);
     }
 

@@ -26,7 +26,7 @@ public class Game extends JFrame {
         gameObjects.add(ball);
         for (int i = 1; i <= 16; i++) {
             for (int j = 1; j <= 3; j++) {
-                Brick brick = new Brick((i-1)*63+1, (j-1)*32 + 2, 60, 30);
+                Brick brick = new Brick((i-1)*63+1, j*32 + 2, 60, 30);
                 brick.setBall(ball);
                 gameObjects.add(brick);
             }
@@ -43,6 +43,7 @@ public class Game extends JFrame {
     private void createWindow() {
         setSize(width, height); //继承自JFrame
         setTitle(windowTitle);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }

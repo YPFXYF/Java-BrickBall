@@ -3,7 +3,7 @@ import java.awt.event.KeyEvent;
 import java.util.Random;
 
 public class Ball extends RectGameObject{
-    private int speed = 4, radius = 17, speedx, speedy;
+    private int speed = 8, radius = 17, speedx, speedy;
     private boolean begin, over;
     private Wood wood;
     Random random = new Random();
