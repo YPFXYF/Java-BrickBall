@@ -7,6 +7,7 @@ import java.util.ArrayList;
 自己绘图
 */
 public class Game extends JFrame {
+    private int score, score0, score1, score2;
     private int width;
     private int height;
     private int fps;
@@ -14,6 +15,7 @@ public class Game extends JFrame {
     private String windowTitle;
     private ArrayList<GameObject> gameObjects;
     private Graphics tempGraphics;
+    RectGameObject s0, s1, s2;
     public Game(int windowWidth, int windowHeight, String title, int fps) {
         gameObjects = new ArrayList<GameObject>();
         width = windowWidth;
@@ -21,12 +23,15 @@ public class Game extends JFrame {
         this.fps = fps;
         Wood wood = new Wood();
         gameObjects.add(wood);
+        //s0 = new RectGameObject(32, 100, 32, 32);
+        //s0.setFilePath("images/Ball.png");
+        //gameObjects.add(s0);
         Ball ball = new Ball();
         ball.setWood(wood);
         gameObjects.add(ball);
         for (int i = 1; i <= 16; i++) {
             for (int j = 1; j <= 3; j++) {
-                Brick brick = new Brick((i-1)*63+1, j*32 + 2, 60, 30);
+                Brick brick = new Brick((i-1)*63+1, j*32 + 100, 60, 30);
                 brick.setBall(ball);
                 gameObjects.add(brick);
             }
@@ -54,7 +59,7 @@ public class Game extends JFrame {
     //重写paint方法
     @Override
     public void paint(Graphics g) { //使用双缓冲解决闪烁问题
-        //在内存里搞一个和窗口大小一致的图片
+        //在内存里搞一个和窗口大小一致的图
         Image img = this.createImage(width, height);
         tempGraphics = img.getGraphics();   //
         clear(tempGraphics);   //清除上一帧的内容
@@ -63,12 +68,26 @@ public class Game extends JFrame {
             gameObject.onTick();
             gameObject.draw(tempGraphics);
         }
+
+        for (GameObject go: gameObjects) {
+            if (go.isremoved) {
+                gameObjects.remove(go);
+            }
+        }
+        //g.drawImage(Toolkit.getDefaultToolkit().createImage("images/Ball.png"), 32, 32, null);
+
         //将内存画布的内容画回窗口上
         g.drawImage(img, 0, 0, null);
+
+        if (gameObjects.size() == 2) {
+            System.out.println("胜利");
+            return;
+        }
+
     }
 
     public void clear(Graphics g) {
-        g.setColor(Color.BLACK);
+        g.setColor(Color.white);
         g.fillRect(0, 0, width, height);
     }
 

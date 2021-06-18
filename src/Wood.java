@@ -19,7 +19,9 @@ public class Wood extends RectGameObject {
     @Override
     public void onTick() {
         if (Input.getKeyDown(KeyEvent.VK_LEFT)) {
-            this.transfer(-1 * speed, 0);
+            if (this.x > 0) {
+                this.transfer(-1 * speed, 0);
+            }
         }
         if (Input.getKeyDown(KeyEvent.VK_RIGHT)) {
             if (this.x + width < 1024) {
@@ -29,9 +31,9 @@ public class Wood extends RectGameObject {
         //System.out.println("wood x ==" + x + "wood y==" + y);
     }
 
-    @Override
-    public void transfer(int x, int y) {
-        super.transfer(x, y);
-
+    void setSpeed(int speed) {
+        this.speed = speed;
     }
+
+
 }

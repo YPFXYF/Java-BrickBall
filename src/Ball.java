@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Ball extends RectGameObject{
     private int speed = 8, radius = 17, speedx, speedy;
-    private boolean begin, over;
+    private boolean begin, over, isCrossBall;
     private Wood wood;
     Random random = new Random();
     public Ball() {
@@ -12,7 +12,17 @@ public class Ball extends RectGameObject{
         begin = false;
         over = false;
         center = new Point(512,600);
-        setFilePath("images/Ball.png");
+        //setFilePath("images/Ball.png");
+        setFilePath("images\\Ball.png");
+        isCrossBall = false;
+    }
+
+    public boolean getCrossBall() {
+        return isCrossBall;
+    }
+
+    public void setCrossBall(boolean flag) {
+        isCrossBall = flag;
     }
 
     public Wood getWood() {
@@ -33,6 +43,7 @@ public class Ball extends RectGameObject{
                 int direct = random.nextInt() % 2;
                 over = false;
                 begin = true;
+                wood.setSpeed(10);
                 if ((direct % 2) == 0) {
                     speedx = speed;
                 } else speedx = -speed;
@@ -41,19 +52,29 @@ public class Ball extends RectGameObject{
         }
 
         if (begin) {
-            if (x <= 0 || x >= 1024 - 34) {
-                speedx = -speedx;
+            if (x <= 0) {
+                speedx = Math.abs(speedx);
             }
 
-            if (y <= 0 || y >= 768 - 34) {
-                speedy = -speedy;
+            if (x >= 1024 - 34) {
+                speedx = -Math.abs(speedx);
+            }
+
+            if (y <= 0) {
+                speedy = Math.abs(speedy);
+            }
+
+            if (y > 734) {
+                over = true;
+                begin = false;
+                return;
             }
         }
 
-        if (y == 600) { //真 实 的 滚 动 引 擎
-            if (Input.getKeyDown(KeyEvent.VK_LEFT))
+        if (y == 600) {
+            if (Input.getKeyDown(KeyEvent.VK_LEFT) && this.x > 0)
                 this.transfer(-1 * speed, 0);
-            if (Input.getKeyDown(KeyEvent.VK_RIGHT))
+            if (Input.getKeyDown(KeyEvent.VK_RIGHT) && this.x + 34 <= 1024)
                 this.transfer(1 * speed, 0);
         }
 
@@ -68,7 +89,7 @@ public class Ball extends RectGameObject{
         }
 
         transfer(speedx, speedy);
-        System.out.println("ball x,y:"+ x + " " + y + "bar x y" + wood.x + " " + wood.y);
+       // System.out.println("ball x,y:"+ x + " " + y + "bar x y" + wood.x + " " + wood.y);
 
     }
 
@@ -80,4 +101,19 @@ public class Ball extends RectGameObject{
         return over;
     }
 
+    public void setSpeedx(int speedx) {
+        this.speedx = speedx;
+    }
+
+    public void setSpeedy(int speedy) {
+        this.speedy = speedy;
+    }
+
+    public int getSpeedx() {
+        return speedx;
+    }
+
+    public int getSpeedy() {
+        return speedy;
+    }
 }

@@ -54,15 +54,15 @@ Input类监听键盘
 
 ## 未完成的
 
-1小球和木板碰撞的判定有些Bug 可能会穿过木板
+### Brick类
 
+继承自RectGameObject表示砖块
 
+需要实现球和砖的交互，以及从游戏中移除砖块。
 
-Brick类继承自RectGameObject表示砖块
+要消除砖块，需要先实现球和砖块碰撞的判定
 
-球和砖的交互
-
-Player类继承自Game类表示游戏
+目前砖块的尺寸是60*30 考虑如何把屏幕（1024$\times$768）铺满。(done)
 
 
 
@@ -103,6 +103,8 @@ while(渲染未完成){
 
 https://blog.csdn.net/ximen250/article/details/105566663?spm=1001.2014.3001.5501
 
+[(14条消息) “等一下，我碰！”——常见的2D碰撞检测_测试-CSDN博客](https://blog.csdn.net/cpongo3/article/details/90259127)
+
 建立抽象类RectGameObject继承自GameObject
 
 球和砖简化为判断圆形和矩形的碰撞
@@ -120,6 +122,10 @@ https://blog.csdn.net/ximen250/article/details/105566663?spm=1001.2014.3001.5501
 此时的碰撞是砖块的边与球的碰撞
 
 可以把球看成边长2r的正方形
+
+找砖块离球心最近的边 然后判断应该让speedx取反还是让speedy取反
+
+
 
 
 

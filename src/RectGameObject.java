@@ -8,7 +8,7 @@ public class RectGameObject extends Sprite{
         setPosition(x, y);
         setWidth(width);
         setHeight(height);
-        center = new Point(x, y);
+        center = new Point(x+width/2, y+height/2);
         LU = new Point(center.x - width / 2, center.y - height / 2);
         LD = new Point(center.x - width / 2, center.y + height / 2);
         RU = new Point(center.x + width / 2, center.y - height / 2);

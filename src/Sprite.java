@@ -14,6 +14,7 @@ public class Sprite extends GameObject {
      */
     public void setFilePath(String s) {
         filePath = s;
+        //System.out.println(s);
         image = Toolkit.getDefaultToolkit().createImage(filePath);
     }
     @Override

@@ -10,6 +10,7 @@ public abstract class GameObject {
      */
     protected int x;
     protected int y;
+    protected boolean isremoved = false;
     /**
      * 渲染此GameObject
      */
@@ -31,6 +32,10 @@ public abstract class GameObject {
     public void transfer(int x, int y) {
         this.x += x;
         this.y += y;
+    }
+
+    public void remove() {
+        isremoved = true;
     }
 
     public int getX() {
