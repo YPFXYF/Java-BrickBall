@@ -57,7 +57,7 @@ public class Ball extends RectGameObject{
                 this.transfer(1 * speed, 0);
         }
 
-        if (x >= wood.center.x && center.x <= wood.center.x + wood.width && Math.abs(y - wood.y) <= radius && speedy > 0) {
+        if (x >= wood.x && center.x <= wood.x + wood.width && Math.abs(y - wood.y) <= radius && speedy > 0) {
             speedy = -speedy;
         }
 

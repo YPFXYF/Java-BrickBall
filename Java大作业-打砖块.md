@@ -12,7 +12,9 @@
 
 设计：球和砖等实例，
 
-### 已完成的
+游戏画面的更新是通过在RenderThread中sleep固定时间后不断尝试game.repaint()方法实现的。
+
+## 已完成的
 
 ### Game类
 
@@ -42,17 +44,27 @@ RenderThread类实现Runnable接口，这个线程用于定时重绘游戏窗口
 
 Input类监听键盘
 
-### 未完成的
+### RectGameObject类
 
-RectGameObject类继承自GameObject类，用于碰撞判断
+继承自GameObject类，用于碰撞判断
 
-Ball类继承自RectGameObject表示小球
+### Ball类
+
+继承自RectGameObject表示小球
+
+## 未完成的
+
+1小球和木板碰撞的判定有些Bug 可能会穿过木板
+
+
 
 Brick类继承自RectGameObject表示砖块
 
 球和砖的交互
 
 Player类继承自Game类表示游戏
+
+
 
 ## 解决窗口闪烁问题
 
@@ -82,6 +94,10 @@ while(渲染未完成){
 监听键盘按键：实现KeyListener接口就可以了。
 
 新建Input类，实现KeyListener接口，用哈希表把按键映射到对应的值上。重写KeyListener中的keyTyped,keyPressed和keyReleased方法
+
+
+
+
 
 ## 碰撞检测
 

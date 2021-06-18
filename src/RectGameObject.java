@@ -39,5 +39,11 @@ public class RectGameObject extends Sprite{
         this.height = height;
     }
 
-
+    @Override
+    public void transfer(int x, int y) {
+        this.x += x;
+        this.y += y;
+        this.center.x += x;
+        this.center.y += y;
+    }
 }
