@@ -1,3 +1,5 @@
+import java.awt.event.KeyEvent;
+
 public class RenderThread implements Runnable {
     /**
      * 用于定时重画窗口（刷新）
@@ -16,6 +18,7 @@ public class RenderThread implements Runnable {
     public void run() {
         System.out.println(thread.getName() + "Start rendering");
         while (!exited) {
+            exit();
             game.repaint();
             try {
                 Thread.sleep(interval);
@@ -33,6 +36,12 @@ public class RenderThread implements Runnable {
         if (thread == null) {
             thread = new Thread(this, "RenderThread");
             thread.start();
+        }
+    }
+
+    public void exit() {
+        if (Input.getKeyDown(KeyEvent.VK_ESCAPE)) {
+            this.exited = true;
         }
     }
 }
